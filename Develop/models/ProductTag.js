@@ -9,16 +9,16 @@ class ProductTag extends Model {}
 ProductTag.init(
   {
     id: {
-      types: DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
     },
-    productId: {
-      types: DataTypes.INTEGER,
+    product_id: {
+      type: DataTypes.INTEGER,
     },
-    tagId: {
-      types: DataTypes.INTEGER,
+    tag_id: {
+      type: DataTypes.INTEGER,
     },
     // define columns
   },
@@ -31,6 +31,4 @@ ProductTag.init(
   }
 );
 
-Product.belongsToMany(Tag, { through: ProductTag });
-Tag.belongsToMany(Product, { through: ProductTag });
 module.exports = ProductTag;

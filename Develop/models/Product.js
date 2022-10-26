@@ -11,32 +11,32 @@ class Product extends Model {}
 Product.init(
   {
     id: {
-      types: DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
     },
-    productName: {
-      types: DataTypes.STRING,
+    product_name: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     price: {
-      types: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
         isDecimal: true,
       },
     },
     stock: {
-      types: DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 10,
       validate: {
         isNumeric: true,
       },
     },
-    catagoryId: {
-      types: DataTypes.INTEGER, 
+    category_id: {
+      type: DataTypes.INTEGER, 
     },
   },
   {
@@ -47,11 +47,6 @@ Product.init(
     modelName: 'product',
   }
 );
-
-Category.hasMany(Product, {
-  foreignKey: 'catagoryId',
-});
-Product.belongsTo(Category);
 
 module.exports = Product;
 
